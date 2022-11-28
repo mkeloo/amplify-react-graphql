@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import '@aws-amplify/ui-react/styles.css';
 import { API, Storage } from 'aws-amplify';
 import {
@@ -39,6 +38,7 @@ const App = ({ signOut }) => {
     );
     setNotes(notesFromAPI);
   }
+
   async function createNote(event) {
     event.preventDefault();
     const form = new FormData(event.target);
@@ -56,6 +56,7 @@ const App = ({ signOut }) => {
     fetchNotes();
     event.target.reset();
   }
+
   async function deleteNote({ id, name }) {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
